@@ -1,41 +1,92 @@
-import Image from 'next/image'
-import { Wrapper } from './CardTechnology.styles'
+import {
+  Description,
+  IconWrapper,
+  TechnologyImage,
+  TechnologyItem,
+  TechnologyList,
+  Title,
+  Wrapper,
+} from './CardTechnology.styles'
 import { Technology } from './CardTechnology.types'
 
 export function CardTechnology() {
   const technologies = [
     {
-      title: 'Next.js',
-      imagePath: '/svg/nextjs.svg',
+      title: 'HTML5',
+      imagePath: '/svg/html5.svg',
+    },
+    {
+      title: 'CSS3',
+      imagePath: '/svg/css3.svg',
+    },
+    {
+      title: 'JavaScript',
+      imagePath: '/svg/javascript.svg',
+    },
+    {
+      title: 'TypeScript',
+      imagePath: '/svg/typescript.svg',
     },
     {
       title: 'React',
       imagePath: '/svg/react.svg',
     },
+    {
+      title: 'Next.js',
+      imagePath: '/svg/nextjs.svg',
+    },
+    {
+      title: 'Node.js',
+      imagePath: '/svg/nodejs.svg',
+    },
+    {
+      title: 'Tailwind',
+      imagePath: '/svg/tailwindcss.svg',
+    },
+    {
+      title: 'PostgreSQL',
+      imagePath: '/svg/postgresql.svg',
+    },
+    {
+      title: 'Git',
+      imagePath: '/svg/git.svg',
+    },
+    {
+      title: 'Figma',
+      imagePath: '/svg/figma.svg',
+    },
+    {
+      title: 'Flutter',
+      imagePath: '/svg/flutter.svg',
+    },
+    {
+      title: 'Dart',
+      imagePath: '/svg/dart.svg',
+    },
   ] satisfies Technology[]
 
   return (
     <Wrapper>
-      <span className="text-3xl font-bold">Tecnologias</span>
-      <span className="text-sm font-normal">
-        Ferramentas e tecnologias que utilizo para transformar ideas em soluções
-      </span>
-      <div className="flex gap-4">
+      <Title>Tecnologias</Title>
+      <Description>
+        Ferramentas e tecnologias que utilizo para transformar ideias em
+        soluções
+      </Description>
+      <TechnologyList>
         {technologies.map(({ imagePath, title }) => (
-          <div key={title} className="flex flex-col gap-1 items-center">
-            <div className="p-4 bg-gray-800 rounded-xl">
-              <Image
+          <TechnologyItem key={title}>
+            <IconWrapper>
+              <TechnologyImage
                 src={imagePath}
                 alt={`${title} logo`}
                 width={32}
                 height={32}
-                className="h-8 w-8"
               />
-            </div>
-            <span>{title}</span>
-          </div>
+            </IconWrapper>
+            <span className="text-xs">{title}</span>
+          </TechnologyItem>
         ))}
-      </div>
+      </TechnologyList>
     </Wrapper>
   )
 }
