@@ -1,4 +1,4 @@
 export type Technology = {
-  title: string
+  group: 'front' | 'back' | 'ferramentas' | 'outros'
   imagePath: string
 }
