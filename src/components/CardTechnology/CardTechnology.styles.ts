@@ -8,5 +8,5 @@ export const Title = w.span('text-3xl font-bold')
 export const TechnologyList = w.div('flex flex-wrap gap-4')
 
 export const TechnologyImage = w(Image, {
-  className: 'h-8 w-8',
+  className: 'h-8 w-8 object-contain',
 })

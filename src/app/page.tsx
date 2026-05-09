@@ -8,7 +8,7 @@ export default function Home() {
     <Container>
       <Header />
       {/* <CardExperiences /> */}
-      <CardAboutMe />
+      {/* <CardAboutMe /> */}
       <CardTechnology />
     </Container>
   )
