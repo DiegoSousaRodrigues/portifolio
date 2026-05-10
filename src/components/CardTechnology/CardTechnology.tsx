@@ -1,9 +1,9 @@
 import {
   TechnologyImage,
   TechnologyList,
-  Title,
   Wrapper,
 } from './CardTechnology.styles'
+import CardHeader from '../CardHeader'
 import { Technology } from './CardTechnology.types'
 
 const technologies = [
@@ -90,7 +90,7 @@ const technologies = [
   {
     name: 'GitHub',
     group: 'ferramentas',
-    imagePath: '/svg/github.svg',
+    imagePath: '/svg/github-white.svg',
   },
   {
     name: 'Figma',
@@ -147,18 +147,11 @@ const technologyGroups = technologyGroupsOrder
 export function CardTechnology() {
   return (
     <Wrapper>
-      <div className="flex justify-between">
-        <div className="flex flex-col gap-3">
-          <h2 className="text-primary font-bold text-sm">STACK</h2>
-          <Title>Tecnologias</Title>
-        </div>
-        <button
-          type="button"
-          className="flex items-center gap-4 border border-primary rounded-lg py-3 px-4 h-fit font-bold cursor-pointer"
-        >
-          Ver todas <div className="h-fit p-1 bg-primary rounded-full"></div>
-        </button>
-      </div>
+      <CardHeader
+        eyebrow="STACK"
+        title="Tecnologias"
+        actionLabel="Ver todas"
+      />
 
       <TechnologyList>
         {technologyGroups.map(({ group, technologies }) => (
