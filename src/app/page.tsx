@@ -10,9 +10,10 @@ export default function Home() {
       <Header />
       <CardTechnology />
       <div className="w-full h-[1px] bg-accent-soft"></div>
-      <CardExperiences />
-      <div className="w-full h-[1px] bg-accent-soft"></div>
-      <CardFooter />
+      <div className='flex flex-col gap-10'>
+        <CardExperiences />
+        <CardFooter />
+      </div>
       {/* <CardAboutMe /> */}
     </Container>
   )

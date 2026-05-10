@@ -5,12 +5,12 @@ export const ExperienceCard = w.article(
 )
 
 const contactButtonClasses = [
-  'flex items-center gap-1',
-  'rounded-2xl border border-[#4f8fff] px-10 py-4',
-  'bg-[linear-gradient(180deg,#3b82ff_0%,#2563eb_58%,#1d4ed8_100%)]',
+  'flex items-center gap-2',
+  'rounded-[14px] border border-[#3a78ea] px-10 py-4',
+  'bg-[linear-gradient(110deg,#1f58dc_0%,#2a68ea_58%,#4a8cff_100%)]',
   'text-md text-white',
-  'shadow-[0_0_26px_rgba(37,99,235,0.62),0_12px_32px_rgba(29,78,216,0.38)]',
-  'transition-[filter,transform,box-shadow] duration-200 hover:brightness-105 active:translate-y-px cursor-pointer',
+  'shadow-[0_0_0_1px_rgba(125,170,255,0.16)_inset,0_0_10px_rgba(37,99,235,0.26),0_7px_16px_rgba(29,78,216,0.22)]',
+  'transition-[filter,transform,box-shadow] duration-200 hover:brightness-[1.03] active:translate-y-px cursor-pointer',
 ].join(' ')
 
 export const ContactButton = w.button(contactButtonClasses)

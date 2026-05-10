@@ -6,12 +6,12 @@ This is a Next.js 15 portfolio project using the App Router. Route-level files l
 
 ## Build, Test, and Development Commands
 
-- `npm run dev`: starts the local Next.js development server at `http://localhost:3000`.
-- `npm run build`: creates a production build and validates TypeScript/Next.js compilation.
-- `npm run start`: serves the production build after `npm run build`.
-- `npm run lint`: runs ESLint with `next/core-web-vitals` and `next/typescript`.
+- `yarn dev`: starts the local Next.js development server at `http://localhost:3000`.
+- `yarn build`: creates a production build and validates TypeScript/Next.js compilation.
+- `yarn start`: serves the production build after `yarn build`.
+- `yarn lint`: runs ESLint with `next/core-web-vitals` and `next/typescript`.
 
-The repository contains both `package-lock.json` and `yarn.lock`; prefer `npm` commands unless the team standardizes on one package manager.
+This project uses Yarn only. Keep `yarn.lock` as the single package-manager lockfile.
 
 ## Coding Style & Naming Conventions
 
@@ -21,7 +21,7 @@ Follow the existing formatting style: two-space indentation, single quotes, no s
 
 ## Testing Guidelines
 
-There is currently no test framework configured. Before opening a pull request, run `npm run lint` and `npm run build`. For future tests, colocate them near the component or feature they cover using names such as `ComponentName.test.tsx`, and prefer React Testing Library for component behavior.
+There is currently no test framework configured. Before opening a pull request, run `yarn lint` and `yarn build`. For future tests, colocate them near the component or feature they cover using names such as `ComponentName.test.tsx`, and prefer React Testing Library for component behavior.
 
 ## Commit & Pull Request Guidelines
 
