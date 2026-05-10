@@ -1,12 +1,10 @@
 export type Experience = {
   title: string
   description: string
-  imagePath?: string
-  imageAlt?: string
-  previewUrl?: string
+  previewUrl: string
   tags: string[]
   projectLabel: string
-  projectUrl?: string
+  projectUrl: string
   codeLabel: string
-  codeUrl?: string
+  codeUrl: string
 }

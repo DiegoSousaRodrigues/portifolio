@@ -1,5 +1,7 @@
 'use client'
 
+import BlueCircle from '../BlueCircle'
+
 type CardHeaderProps = {
   eyebrow: string
   title: string
@@ -24,7 +26,7 @@ export function CardHeader({
         onClick={actionButton}
         className="flex items-center gap-4 border border-primary rounded-lg py-3 px-4 h-fit font-bold cursor-pointer"
       >
-        {actionLabel} <div className="h-fit p-1 bg-primary rounded-full"></div>
+        {actionLabel} <BlueCircle />
       </button>
     </div>
   )

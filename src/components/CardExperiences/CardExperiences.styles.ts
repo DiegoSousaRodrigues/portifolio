@@ -47,5 +47,3 @@ const experienceActionClasses =
   'flex items-center gap-2 text-zinc-200 transition-colors hover:text-blue-400'
 
 export const ExperienceAction = w.a(experienceActionClasses)
-
-export const ExperienceActionButton = w.button(experienceActionClasses)

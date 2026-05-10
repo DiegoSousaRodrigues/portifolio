@@ -1,4 +1,7 @@
+import type { ReactNode } from 'react'
+import Image from 'next/image'
 import { FiExternalLink } from 'react-icons/fi'
+import BlueCircle from '../BlueCircle'
 import CardHeader from '../CardHeader'
 import {
   ExperienceAction,
@@ -8,9 +11,7 @@ import {
   ExperienceContent,
   ExperienceDescription,
   ExperienceFooter,
-  ExperienceImage,
   ExperienceImageWrapper,
-  ExperienceActionButton,
   ExperiencePreviewFrame,
   ExperiencesList,
   ExperienceTag,
@@ -18,21 +19,45 @@ import {
   ExperienceTitle,
   Wrapper,
 } from './CardExperiences.styles'
-import { Experience } from './CardExperiences.types'
-import Image from 'next/image'
+import type { Experience } from './CardExperiences.types'
 
-const experiences: Experience[] = [
+const experiences = [
   {
     title: 'Auth Next.js',
     description:
       'Aplicação de autenticação com página inicial, login e área logada, exibindo o estado da sessão do usuário.',
     previewUrl: 'https://auth-alpha-dusky.vercel.app/',
     tags: ['Next.js', 'React', 'Tailwind CSS', 'Autenticação'],
-    projectLabel: 'Ver projeto',
+    projectLabel: 'Ver projetos',
     projectUrl: 'https://auth-alpha-dusky.vercel.app/',
     codeLabel: 'Código',
+    codeUrl: 'https://github.com/DiegoSousaRodrigues/auth',
   },
-]
+] satisfies Experience[]
+
+const externalLinkProps = {
+  target: '_blank',
+  rel: 'noreferrer',
+} as const
+
+type ExperienceCardItemProps = {
+  experience: Experience
+}
+
+type ExperiencePreviewProps = Pick<Experience, 'previewUrl' | 'title'>
+
+type ExperienceTagListProps = Pick<Experience, 'tags'>
+
+type ExperienceActionsProps = Pick<
+  Experience,
+  'codeLabel' | 'codeUrl' | 'projectLabel' | 'projectUrl'
+>
+
+type ExperienceActionLinkProps = {
+  children: ReactNode
+  href: string
+  label: string
+}
 
 export function CardExperiences() {
   return (
@@ -45,95 +70,108 @@ export function CardExperiences() {
 
       <ExperiencesList>
         {experiences.map((experience) => (
-          <ExperienceCard key={experience.title}>
-            <ExperienceCardGlow />
-
-            <ExperienceCardContent>
-              {experience.previewUrl ? (
-                <ExperienceImageWrapper>
-                  <ExperiencePreviewFrame
-                    src={experience.previewUrl}
-                    title={`Preview do projeto ${experience.title}`}
-                    loading="lazy"
-                  />
-                </ExperienceImageWrapper>
-              ) : (
-                experience.imagePath &&
-                experience.imageAlt && (
-                  <ExperienceImageWrapper>
-                    <ExperienceImage
-                      src={experience.imagePath}
-                      alt={experience.imageAlt}
-                      width={640}
-                      height={360}
-                    />
-                  </ExperienceImageWrapper>
-                )
-              )}
-
-              <ExperienceContent>
-                <div>
-                  <ExperienceTitle>{experience.title}</ExperienceTitle>
-
-                  <ExperienceDescription>
-                    {experience.description}
-                  </ExperienceDescription>
-                </div>
-
-                <ExperienceTags>
-                  {experience.tags.map((tag) => (
-                    <ExperienceTag key={tag}>{tag}</ExperienceTag>
-                  ))}
-                </ExperienceTags>
-
-                <ExperienceFooter>
-                  {experience.projectUrl ? (
-                    <ExperienceAction
-                      href={experience.projectUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <FiExternalLink />
-                      {experience.projectLabel}
-                    </ExperienceAction>
-                  ) : (
-                    <ExperienceActionButton type="button">
-                      <FiExternalLink />
-                      {experience.projectLabel}
-                    </ExperienceActionButton>
-                  )}
-
-                  {experience.codeUrl ? (
-                    <ExperienceAction
-                      href={experience.codeUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <Image
-                        src="/svg/github-white.svg"
-                        alt="github icon"
-                        width={24}
-                        height={24}
-                      />
-                      {experience.codeLabel}
-                    </ExperienceAction>
-                  ) : (
-                    <ExperienceActionButton type="button">
-                      <Image
-                        src="/svg/github-white.svg"
-                        alt="github icon"
-                        width={24}
-                        height={24}
-                      />
-                      {experience.codeLabel}
-                    </ExperienceActionButton>
-                  )}
-                </ExperienceFooter>
-              </ExperienceContent>
-            </ExperienceCardContent>
-          </ExperienceCard>
+          <ExperienceCardItem key={experience.title} experience={experience} />
         ))}
       </ExperiencesList>
     </Wrapper>
+  )
+}
+
+function ExperienceCardItem({ experience }: ExperienceCardItemProps) {
+  const {
+    codeLabel,
+    codeUrl,
+    description,
+    previewUrl,
+    projectLabel,
+    projectUrl,
+    tags,
+    title,
+  } = experience
+
+  return (
+    <ExperienceCard>
+      <ExperienceCardGlow />
+
+      <ExperienceCardContent>
+        <ExperiencePreview previewUrl={previewUrl} title={title} />
+
+        <ExperienceContent>
+          <div>
+            <ExperienceTitle>{title}</ExperienceTitle>
+
+            <ExperienceDescription>{description}</ExperienceDescription>
+          </div>
+
+          <ExperienceTagList tags={tags} />
+
+          <ExperienceActions
+            codeLabel={codeLabel}
+            codeUrl={codeUrl}
+            projectLabel={projectLabel}
+            projectUrl={projectUrl}
+          />
+        </ExperienceContent>
+      </ExperienceCardContent>
+    </ExperienceCard>
+  )
+}
+
+function ExperiencePreview({ previewUrl, title }: ExperiencePreviewProps) {
+  return (
+    <ExperienceImageWrapper>
+      <ExperiencePreviewFrame
+        src={previewUrl}
+        title={`Preview do projeto ${title}`}
+        loading="lazy"
+      />
+    </ExperienceImageWrapper>
+  )
+}
+
+function ExperienceTagList({ tags }: ExperienceTagListProps) {
+  return (
+    <ExperienceTags>
+      {tags.map((tag) => (
+        <ExperienceTag key={tag}>{tag}</ExperienceTag>
+      ))}
+    </ExperienceTags>
+  )
+}
+
+function ExperienceActions({
+  codeLabel,
+  codeUrl,
+  projectLabel,
+  projectUrl,
+}: ExperienceActionsProps) {
+  return (
+    <ExperienceFooter>
+      <ExperienceActionLink href={projectUrl} label={projectLabel}>
+        <FiExternalLink />
+      </ExperienceActionLink>
+
+      <ExperienceActionLink href={codeUrl} label={codeLabel}>
+        <Image
+          src="/svg/github-white.svg"
+          alt="github icon"
+          width={24}
+          height={24}
+        />
+      </ExperienceActionLink>
+    </ExperienceFooter>
+  )
+}
+
+function ExperienceActionLink({
+  children,
+  href,
+  label,
+}: ExperienceActionLinkProps) {
+  return (
+    <ExperienceAction href={href} {...externalLinkProps}>
+      {children}
+      {label} <BlueCircle />
+    </ExperienceAction>
   )
 }
