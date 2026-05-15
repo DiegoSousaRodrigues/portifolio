@@ -1,0 +1,1 @@
+export { CardPrincipal } from './CardPrincipal'

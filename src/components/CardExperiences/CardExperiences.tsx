@@ -63,7 +63,7 @@ export function CardExperiences() {
   return (
     <Wrapper>
       <CardHeader
-        eyebrow="Projetos"
+        eyebrow="PROJETOS"
         title="Projetos em destaque"
         actionLabel="Ver todos os projetos"
       />

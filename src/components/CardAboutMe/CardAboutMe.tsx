@@ -1,58 +1,80 @@
-import { TitleScreen, WrapperScreen } from '@/styles/commum'
-import { MdCheck } from 'react-icons/md'
-import { AboutItemProps } from './CardAboutMe.types'
-import Image from 'next/image'
+import { IoCodeSlash, IoFlashOutline } from 'react-icons/io5'
+import type { ReactNode } from 'react'
+import { MdOutlineRocketLaunch } from 'react-icons/md'
+import {
+  AboutCardsList,
+  AboutCopy,
+  AboutSection,
+  InfoCard,
+  InfoCardContent,
+  InfoIcon,
+} from './CardAboutMe.styles'
 
-export function CardAboutMe() {
+export type GradientInfoCardProps = {
+  icon: ReactNode
+  title: string
+  description: string
+}
+
+export function GradientInfoCard({
+  icon,
+  title,
+  description,
+}: GradientInfoCardProps) {
   return (
-    <div className={WrapperScreen({})}>
-      <h2 className={TitleScreen({})}>Sobre mim</h2>
-      <p className="text-sm">
-        Sou um Frontend Engineer Sênior apaixonado por transformar ideias em
-        experiências digitais modernas, performáticas e intuitivas. Tenho
-        experiência no desenvolvimento de aplicações escaláveis utilizando
-        tecnologias como React, Next.js, TypeScript e Tailwind CSS, sempre com
-        foco em qualidade de código, arquitetura e experiência do usuário.
-      </p>
-      <p className="text-sm">
-        Ao longo da minha trajetória, participei da construção de produtos
-        voltados para diferentes áreas de negócio, colaborando diretamente com
-        times multidisciplinares para entregar interfaces eficientes, acessíveis
-        e alinhadas aos objetivos estratégicos da empresa.
-      </p>
-      <p className="text-sm">
-        Tenho grande interesse por engenharia de software, performance web,
-        design de interfaces e boas práticas de desenvolvimento front-end. Gosto
-        de ir além da implementação visual, buscando entender profundamente como
-        as aplicações funcionam internamente para construir soluções mais
-        sólidas, escaláveis e bem estruturadas.
-      </p>
-      <p className="text-sm">
-        Além do desenvolvimento, valorizo muito colaboração, comunicação clara e
-        aprendizado contínuo. Estou sempre estudando novas tecnologias, padrões
-        de arquitetura e formas de elevar a qualidade dos produtos que construo.
-      </p>
-      <p className="text-sm">Alguns pontos que fazem parte do meu dia a dia:</p>
-      <ul>
-        <AboutItem>
-          Desenvolvimento de aplicações modernas com React e Next.js
-        </AboutItem>
-        <AboutItem>Criação de interfaces responsivas e acessíveis</AboutItem>
-        <AboutItem>Arquitetura e organização escalável de front-end</AboutItem>
-        <AboutItem>Performance, SEO e boas práticas</AboutItem>
-        <AboutItem>Integração com APIs e ecossistemas modernos</AboutItem>
-        <AboutItem>Experiência com times ágeis e cultura de produto</AboutItem>
-        <AboutItem>Forte interesse em UI/UX e experiência do usuário</AboutItem>
-      </ul>
-    </div>
+    <InfoCard>
+      <InfoCardContent>
+        <InfoIcon>
+          {icon}
+        </InfoIcon>
+        <span className="text-[19px] font-bold leading-none tracking-normal text-white">
+          {title}
+        </span>
+        <span className="mt-2 text-sm font-medium leading-none tracking-normal text-text-secondary">
+          {description}
+        </span>
+      </InfoCardContent>
+    </InfoCard>
   )
 }
 
-function AboutItem({ children }: AboutItemProps) {
+export function CardAboutMe() {
   return (
-    <li className="flex items-center gap-2 text-sm">
-      <MdCheck size={22} className="fill-blue-400" />
-      {children}
-    </li>
+    <div className="flex flex-col gap-8 md:flex-row">
+      <div className="flex w-full flex-col gap-4">
+        <div className="flex flex-col gap-3">
+          <h2 className="text-primary font-bold text-xs">SOBRE MIM</h2>
+          <span className="text-2xl font-bold">Mais sobre mim</span>
+        </div>
+        <p>
+          Apaixonado por tecnologia e produto. Atuo há mais de 5 anos criando
+          aplicações web modernas, escaláveis e com foco em experiência do
+          usuário e performance
+        </p>
+      </div>
+      <div className="flex w-full justify-center gap-3 md:w-2/3 md:justify-end  ">
+        <GradientInfoCard
+          icon={
+            <IoCodeSlash className="drop-shadow-[0_0_14px_rgba(59,130,246,0.85)]" />
+          }
+          title="+5 anos"
+          description="de experiência"
+        />
+        <GradientInfoCard
+          icon={
+            <MdOutlineRocketLaunch className="drop-shadow-[0_0_14px_rgba(59,130,246,0.85)]" />
+          }
+          title="10+"
+          description="projetos entregues"
+        />
+        <GradientInfoCard
+          icon={
+            <IoFlashOutline className="drop-shadow-[0_0_14px_rgba(59,130,246,0.85)]" />
+          }
+          title="Foco em"
+          description="performance e UX "
+        />
+      </div>
+    </div>
   )
 }

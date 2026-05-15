@@ -18,8 +18,8 @@ export function CardHeader({
   return (
     <div className="flex justify-between">
       <div className="flex flex-col gap-3">
-        <h2 className="text-primary font-bold text-sm">{eyebrow}</h2>
-        <span className="text-3xl font-bold">{title}</span>
+        <h2 className="text-primary font-bold text-xs">{eyebrow}</h2>
+        <span className="text-2xl font-bold">{title}</span>
       </div>
       <button
         type="button"

@@ -1,5 +1,6 @@
+import { PrimaryButton } from '@/styles/commum'
 import { FiArrowUpRight } from 'react-icons/fi'
-import { ContactButton, ExperienceCard } from './CardFooter.styles'
+import { ExperienceCard } from './CardFooter.styles'
 import type { CardFooterProps } from './CardFooter.types'
 
 export function CardFooter({}: CardFooterProps) {
@@ -18,10 +19,10 @@ export function CardFooter({}: CardFooterProps) {
             soluções impactantes.
           </span>
         </div>
-        <ContactButton type="button">
+        <PrimaryButton type="button">
           <span>Entrar em contato</span>
           <FiArrowUpRight size={16} strokeWidth={3} />
-        </ContactButton>
+        </PrimaryButton>
       </ExperienceCard>
       <div className="flex justify-between">
         <div></div>
