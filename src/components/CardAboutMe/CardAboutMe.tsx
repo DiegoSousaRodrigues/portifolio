@@ -1,14 +1,7 @@
 import { IoCodeSlash, IoFlashOutline } from 'react-icons/io5'
 import type { ReactNode } from 'react'
 import { MdOutlineRocketLaunch } from 'react-icons/md'
-import {
-  AboutCardsList,
-  AboutCopy,
-  AboutSection,
-  InfoCard,
-  InfoCardContent,
-  InfoIcon,
-} from './CardAboutMe.styles'
+import { InfoCard, InfoCardContent, InfoIcon } from './CardAboutMe.styles'
 
 export type GradientInfoCardProps = {
   icon: ReactNode
@@ -24,9 +17,7 @@ export function GradientInfoCard({
   return (
     <InfoCard>
       <InfoCardContent>
-        <InfoIcon>
-          {icon}
-        </InfoIcon>
+        <InfoIcon>{icon}</InfoIcon>
         <span className="text-[19px] font-bold leading-none tracking-normal text-white">
           {title}
         </span>

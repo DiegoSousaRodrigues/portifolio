@@ -17,10 +17,13 @@ export default function Header() {
         <span>DIEGO SOUSA</span>
         <BlueCircle />
       </div>
-      <div className="flex gap-2 border-2 items-center border-primary px-5 py-3 rounded-2xl font-bold">
+      <button
+        type="button"
+        className="flex gap-2 border-2 items-center border-primary px-5 py-3 rounded-2xl font-bold cursor-pointer"
+      >
         Vamos conversar
         <MdArrowForward className="fill-primary" size={20} />
-      </div>
+      </button>
     </div>
   )
 }

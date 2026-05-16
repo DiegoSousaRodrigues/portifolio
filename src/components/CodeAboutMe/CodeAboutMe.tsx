@@ -7,30 +7,39 @@ export function CodeAboutMe({}: CodeAboutMeProps) {
       style={{
         position: 'relative',
         width: '100%',
-        maxWidth: 760,
-        minHeight: 520,
-        padding: 32,
+        maxWidth: 720,
+        minHeight: 560,
+        padding: '28px 0 24px 26px',
         overflow: 'hidden',
-        borderRadius: 18,
-        border: '1px solid var(--border)',
-        background:
-          'radial-gradient(circle at 86% 6%, rgba(59,130,246,0.09), transparent 34%), linear-gradient(135deg, rgba(15,23,42,0.34) 0%, rgba(11,17,32,0.44) 52%, rgba(5,8,22,0.58) 100%)',
-        boxShadow:
-          '0 0 0 1px rgba(255,255,255,0.02) inset, 0 18px 44px rgba(2,6,23,0.14)',
+        borderRadius: 24,
       }}
     >
+      {/* Glow superior */}
+      <div
+        style={{
+          position: 'absolute',
+          right: -40,
+          top: -70,
+          width: 430,
+          height: 260,
+          background:
+            'radial-gradient(circle, rgba(37,99,235,0.48) 0%, rgba(37,99,235,0.16) 44%, transparent 72%)',
+          filter: 'blur(4px)',
+        }}
+      />
+
       {/* Glow lateral */}
       <div
         style={{
           position: 'absolute',
-          left: -70,
-          top: 220,
-          width: 180,
-          height: 90,
+          left: -92,
+          top: 260,
+          width: 210,
+          height: 110,
           borderRadius: '50%',
-          border: '2px solid rgba(59,130,246,0.14)',
-          filter: 'blur(1px)',
-          boxShadow: '0 0 30px rgba(59,130,246,0.12)',
+          border: '2px solid rgba(99,102,241,0.72)',
+          filter: 'blur(0.4px)',
+          boxShadow: '0 0 36px rgba(99,102,241,0.45)',
           transform: 'rotate(-18deg)',
         }}
       />
@@ -39,12 +48,12 @@ export function CodeAboutMe({}: CodeAboutMeProps) {
       <div
         style={{
           position: 'absolute',
-          left: 120,
-          bottom: -20,
-          width: 520,
-          height: 60,
-          background: 'rgba(56,189,248,0.08)',
-          filter: 'blur(35px)',
+          left: 40,
+          bottom: 4,
+          width: 560,
+          height: 72,
+          background: 'rgba(79,70,229,0.44)',
+          filter: 'blur(34px)',
           borderRadius: '50%',
         }}
       />
@@ -53,14 +62,14 @@ export function CodeAboutMe({}: CodeAboutMeProps) {
       <div
         style={{
           position: 'absolute',
-          right: 32,
-          top: 90,
-          width: 180,
-          height: 260,
-          opacity: 0.1,
+          right: -6,
+          top: 4,
+          width: 230,
+          height: 360,
+          opacity: 0.24,
           backgroundImage:
-            'radial-gradient(rgba(148,163,184,0.72) 1px, transparent 1px)',
-          backgroundSize: '14px 14px',
+            'radial-gradient(rgba(96,165,250,0.82) 1px, transparent 1px)',
+          backgroundSize: '16px 16px',
         }}
       />
 
@@ -70,12 +79,12 @@ export function CodeAboutMe({}: CodeAboutMeProps) {
           position: 'relative',
           zIndex: 2,
           width: '100%',
-          minHeight: 440,
-          borderRadius: 16,
-          background: 'rgba(5, 8, 22, 0.72)',
-          border: '1px solid rgba(255,255,255,0.08)',
+          minHeight: 500,
+          borderRadius: 22,
+          background: 'rgba(5, 8, 22, 0.84)',
+          border: '1px solid rgba(96,165,250,0.24)',
           boxShadow:
-            '0 18px 45px rgba(2,6,23,0.28), inset 0 1px 0 rgba(255,255,255,0.04)',
+            '0 20px 60px rgba(2,6,23,0.44), 0 0 0 1px rgba(59,130,246,0.08) inset, inset 0 1px 0 rgba(255,255,255,0.05)',
           backdropFilter: 'blur(18px)',
           overflow: 'hidden',
         }}
@@ -84,7 +93,7 @@ export function CodeAboutMe({}: CodeAboutMeProps) {
         <div
           style={{
             position: 'relative',
-            height: 58,
+            height: 68,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -94,7 +103,7 @@ export function CodeAboutMe({}: CodeAboutMeProps) {
           <div
             style={{
               position: 'absolute',
-              left: 28,
+              left: 34,
               display: 'flex',
               gap: 10,
             }}
@@ -107,7 +116,7 @@ export function CodeAboutMe({}: CodeAboutMeProps) {
           <span
             style={{
               color: '#e5e7eb',
-              fontSize: 15,
+              fontSize: 16,
               fontWeight: 600,
               letterSpacing: 0.2,
             }}
@@ -117,7 +126,7 @@ export function CodeAboutMe({}: CodeAboutMeProps) {
 
           <span
             style={{
-              marginLeft: 22,
+              marginLeft: 24,
               width: 10,
               height: 10,
               borderRadius: '50%',
@@ -131,10 +140,10 @@ export function CodeAboutMe({}: CodeAboutMeProps) {
         <pre
           style={{
             margin: 0,
-            padding: '34px 44px',
+            padding: '34px 42px 38px',
             color: '#e5e7eb',
-            fontSize: 18,
-            lineHeight: 1.7,
+            fontSize: 17,
+            lineHeight: 1.72,
             fontFamily:
               'JetBrains Mono, Fira Code, Consolas, Monaco, monospace',
             whiteSpace: 'pre-wrap',

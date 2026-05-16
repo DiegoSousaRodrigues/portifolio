@@ -19,4 +19,11 @@ const primaryButtonClasses = [
   'transition-[filter,transform,box-shadow] duration-200 hover:brightness-[1.03] active:translate-y-px cursor-pointer',
 ].join(' ')
 
-export const PrimaryButton = w.button(primaryButtonClasses)
+export const PrimaryButton = w.button(primaryButtonClasses, {
+  variants: {
+    fullWidth: (value: boolean) => (value ? 'w-full justify-center' : ''),
+  },
+  defaultVariants: {
+    fullWidth: false,
+  },
+})
