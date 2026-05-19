@@ -23,29 +23,25 @@ if (existsSync(componentDir)) {
 mkdirSync(componentDir, { recursive: true })
 
 writeFileSync(
-  join(componentDir, 'index.tsx'),
+  join(componentDir, 'index.ts'),
   `export { ${componentName} } from './${componentName}'\n`
 )
 
 writeFileSync(
   join(componentDir, `${componentName}.tsx`),
-  `import type { ${componentName}Props } from './${componentName}.types'
+  `import { Wrapper } from './${componentName}.styles'
 
-export function ${componentName}({}: ${componentName}Props) {
-  return <div>${componentName}</div>
+export function ${componentName}() {
+  return <Wrapper>${componentName}</Wrapper>
 }
 `
 )
 
 writeFileSync(
-  join(componentDir, `${componentName}.types.ts`),
-  `export interface ${componentName}Props {}
-`
-)
-
-writeFileSync(
   join(componentDir, `${componentName}.styles.ts`),
-  `export const styles = {}
+  `import { w } from 'windstitch'
+
+export const Wrapper = w.div('')
 `
 )
 

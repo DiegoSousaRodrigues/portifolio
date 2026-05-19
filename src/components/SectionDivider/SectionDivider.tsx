@@ -1,3 +1,5 @@
+import { Divider } from './SectionDivider.styles'
+
 export function SectionDivider() {
-  return <div className="w-full h-[1px] bg-accent-soft"></div>
+  return <Divider />
 }

@@ -1,3 +1,1 @@
-import { BlueCircle } from './BlueCircle'
-
-export default BlueCircle
+export { BlueCircle } from './BlueCircle'

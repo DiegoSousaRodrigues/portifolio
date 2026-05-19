@@ -1,29 +1,33 @@
-import { MdArrowForward } from 'react-icons/md'
-import BlueCircle from '../BlueCircle'
+import { BlueCircle } from '../BlueCircle'
+import { contactLinks, externalLinkProps } from '@/data/contact-links'
 import Image from 'next/image'
+import {
+  ArrowIcon,
+  Brand,
+  BrandName,
+  ConversationButton,
+  Wrapper,
+} from './Header.styles'
 
-export default function Header() {
+export function Header() {
   return (
-    <div className="text-white flex w-full items-center justify-between h-[60px]">
-      <div className="flex items-center text-md font-bold gap-2">
+    <Wrapper>
+      <Brand>
         <div>
           <Image
-            alt="logo image"
+            alt="Logo de Diego Sousa"
             src="/images/logo2.png"
             width={40}
             height={40}
           />
         </div>
-        <span>DIEGO SOUSA</span>
+        <BrandName>DIEGO SOUSA</BrandName>
         <BlueCircle />
-      </div>
-      <button
-        type="button"
-        className="flex gap-2 border-2 items-center border-primary px-5 py-3 rounded-2xl font-bold cursor-pointer"
-      >
+      </Brand>
+      <ConversationButton href={contactLinks.whatsapp} {...externalLinkProps}>
         Vamos conversar
-        <MdArrowForward className="fill-primary" size={20} />
-      </button>
-    </div>
+        <ArrowIcon size={20} />
+      </ConversationButton>
+    </Wrapper>
   )
 }

@@ -1,70 +1,16 @@
+@config '../../tailwind.config.ts';
 @import 'tailwindcss';
 
 :root {
   --font-satoshi: 'Satoshi', sans-serif;
-
-  --background: #050816;
-  --foreground: #f8fafc;
-  --background-secondary: #0b1120;
-  --background-elevated: #111827;
-
-  --primary: #3b82f6;
-  --primary-hover: #2563eb;
-  --primary-foreground: #ffffff;
-
-  --secondary: #8b5cf6;
-  --secondary-hover: #7c3aed;
-  --secondary-foreground: #ffffff;
-
-  --accent: #38bdf8;
-  --accent-soft: rgba(56, 189, 248, 0.14);
-
-  --border: rgba(255, 255, 255, 0.08);
-  --border-strong: rgba(255, 255, 255, 0.14);
-
-  --text-primary: #f8fafc;
-  --text-secondary: #cbd5e1;
-  --text-muted: #64748b;
-
-  --card: rgba(15, 23, 42, 0.72);
-  --card-hover: rgba(30, 41, 59, 0.86);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-background-secondary: var(--background-secondary);
-  --color-background-elevated: var(--background-elevated);
-  --color-foreground: var(--foreground);
-
-  --color-primary: var(--primary);
-  --color-primary-hover: var(--primary-hover);
-  --color-primary-foreground: var(--primary-foreground);
-
-  --color-secondary: var(--secondary);
-  --color-secondary-hover: var(--secondary-hover);
-  --color-secondary-foreground: var(--secondary-foreground);
-
-  --color-accent: var(--accent);
-  --color-accent-soft: var(--accent-soft);
-
-  --color-border: var(--border);
-  --color-border-strong: var(--border-strong);
-
-  --color-text-primary: var(--text-primary);
-  --color-text-secondary: var(--text-secondary);
-  --color-text-muted: var(--text-muted);
-
-  --color-card: var(--card);
-  --color-card-hover: var(--card-hover);
-
-  --font-sans: var(--font-satoshi);
-
-  --text-xxs: 10px;
-  --text-xxs--line-height: 14px;
+html {
+  scroll-behavior: smooth;
 }
 
+html,
 body {
-  background: var(--background);
-  color: var(--foreground);
-  @apply font-sans;
+  max-width: 100%;
+  overflow-x: hidden;
 }

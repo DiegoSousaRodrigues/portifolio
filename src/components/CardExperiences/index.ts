@@ -1,3 +1,1 @@
-import { CardExperiences } from './CardExperiences'
-
-export default CardExperiences
+export { CardExperiences } from './CardExperiences'

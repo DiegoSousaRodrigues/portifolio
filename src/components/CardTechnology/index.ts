@@ -1,3 +1,1 @@
-import { CardTechnology } from './CardTechnology'
-
-export default CardTechnology
+export { CardTechnology } from './CardTechnology'

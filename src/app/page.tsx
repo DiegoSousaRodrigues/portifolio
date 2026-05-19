@@ -1,11 +1,12 @@
-import { CardAboutMe } from '@/components/CardAboutMe/CardAboutMe'
+import { CardAboutMe } from '@/components/CardAboutMe'
 import { CardContact } from '@/components/CardContact'
-import CardExperiences from '@/components/CardExperiences'
+import { CardExperiences } from '@/components/CardExperiences'
 import { CardPrincipal } from '@/components/CardPrincipal'
-import CardTechnology from '@/components/CardTechnology'
-import { Container } from '@/components/Container/Container'
-import Header from '@/components/Header/Header'
+import { CardTechnology } from '@/components/CardTechnology'
+import { Container } from '@/components/Container'
+import { Header } from '@/components/Header'
 import { SectionDivider } from '@/components/SectionDivider'
+import { BottomSections } from './page.styles'
 
 export default function Home() {
   return (
@@ -17,10 +18,10 @@ export default function Home() {
       <SectionDivider />
       <CardTechnology />
       <SectionDivider />
-      <div className="flex flex-col gap-10">
+      <BottomSections>
         <CardExperiences />
         <CardContact />
-      </div>
+      </BottomSections>
     </Container>
   )
 }

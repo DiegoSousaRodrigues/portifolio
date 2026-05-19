@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react'
 import Image from 'next/image'
 import { FiExternalLink } from 'react-icons/fi'
-import BlueCircle from '../BlueCircle'
-import CardHeader from '../CardHeader'
+import { BlueCircle } from '../BlueCircle'
+import { CardHeader } from '../CardHeader'
 import {
   ExperienceAction,
   ExperienceCard,
@@ -19,37 +19,19 @@ import {
   ExperienceTitle,
   Wrapper,
 } from './CardExperiences.styles'
-import type { Experience } from './CardExperiences.types'
-
-const experiences = [
-  {
-    title: 'Auth Next.js',
-    description:
-      'Aplicação de autenticação com página inicial, login e área logada, exibindo o estado da sessão do usuário.',
-    previewUrl: 'https://auth-alpha-dusky.vercel.app/',
-    tags: ['Next.js', 'React', 'Tailwind CSS', 'Autenticação'],
-    projectLabel: 'Ver projetos',
-    projectUrl: 'https://auth-alpha-dusky.vercel.app/',
-    codeLabel: 'Código',
-    codeUrl: 'https://github.com/DiegoSousaRodrigues/auth',
-  },
-] satisfies Experience[]
-
-const externalLinkProps = {
-  target: '_blank',
-  rel: 'noreferrer',
-} as const
+import { projects, type Project } from '@/data/projects'
+import { externalLinkProps } from '@/data/contact-links'
 
 type ExperienceCardItemProps = {
-  experience: Experience
+  experience: Project
 }
 
-type ExperiencePreviewProps = Pick<Experience, 'previewUrl' | 'title'>
+type ExperiencePreviewProps = Pick<Project, 'previewUrl' | 'title'>
 
-type ExperienceTagListProps = Pick<Experience, 'tags'>
+type ExperienceTagListProps = Pick<Project, 'tags'>
 
 type ExperienceActionsProps = Pick<
-  Experience,
+  Project,
   'codeLabel' | 'codeUrl' | 'projectLabel' | 'projectUrl'
 >
 
@@ -61,15 +43,11 @@ type ExperienceActionLinkProps = {
 
 export function CardExperiences() {
   return (
-    <Wrapper>
-      <CardHeader
-        eyebrow="PROJETOS"
-        title="Projetos em destaque"
-        actionLabel="Ver todos os projetos"
-      />
+    <Wrapper id="projetos">
+      <CardHeader eyebrow="PROJETOS" title="Projetos em destaque" />
 
       <ExperiencesList>
-        {experiences.map((experience) => (
+        {projects.map((experience) => (
           <ExperienceCardItem key={experience.title} experience={experience} />
         ))}
       </ExperiencesList>
@@ -154,7 +132,7 @@ function ExperienceActions({
       <ExperienceActionLink href={codeUrl} label={codeLabel}>
         <Image
           src="/svg/github-white.svg"
-          alt="github icon"
+          alt="Icone do GitHub"
           width={24}
           height={24}
         />

@@ -1,25 +1,51 @@
 import { w } from 'windstitch'
+import { IoCodeSlash, IoFlashOutline } from 'react-icons/io5'
+import { MdOutlineRocketLaunch } from 'react-icons/md'
 
-export const AboutSection = w.section(
-  'relative isolate flex flex-col gap-8 overflow-hidden rounded-3xl border border-border bg-[radial-gradient(ellipse_at_88%_16%,rgba(59,130,246,0.20),transparent_34%),linear-gradient(135deg,rgba(2,6,23,0.96)_0%,rgba(7,16,31,0.92)_54%,rgba(11,18,32,0.94)_100%)] px-8 py-9 shadow-[0_0_40px_rgba(59,130,246,0.08)] md:flex-row md:items-center md:justify-between',
-)
+export const Wrapper = w.section('flex flex-col gap-6 md:flex-row md:gap-8')
 
-export const AboutCopy = w.div(
-  'relative z-10 flex w-full max-w-[560px] flex-col gap-4',
-)
+export const Copy = w.div('flex w-full flex-col gap-4')
 
-export const AboutCardsList = w.div(
-  'relative z-10 grid w-full grid-cols-1 gap-3 sm:grid-cols-3 md:w-auto md:min-w-[504px]',
+export const HeadingGroup = w.div('flex flex-col gap-3')
+
+export const Eyebrow = w.h2('text-xs font-bold text-primary')
+
+export const Title = w.span('text-2xl font-bold')
+
+export const CardsList = w.div(
+  'grid w-full grid-cols-1 gap-3 sm:grid-cols-3 md:w-2/3 md:justify-end',
 )
 
 export const InfoCard = w.div(
-  'relative aspect-square min-h-[150px] overflow-hidden rounded-[18px] bg-[linear-gradient(145deg,rgba(59,130,246,0.20),rgba(255,255,255,0.05)_44%,rgba(56,189,248,0.10))] p-[1px] shadow-[0_0_24px_rgba(59,130,246,0.08)]',
+  'relative min-h-[132px] overflow-hidden rounded-[18px] bg-info-card p-px shadow-info-card sm:aspect-square sm:min-h-[142px]',
 )
 
 export const InfoCardContent = w.div(
-  'relative flex h-full flex-col items-center justify-center rounded-[17px] border border-white/[0.04] bg-[#07101F]/95 px-4 text-center backdrop-blur-xl',
+  'relative flex h-full flex-col items-center justify-center rounded-[17px] border border-border-faint bg-surface-deep/95 px-4 text-center backdrop-blur-xl',
 )
 
 export const InfoIcon = w.div(
-  'mb-4 flex h-[48px] w-[48px] items-center justify-center rounded-2xl bg-[linear-gradient(145deg,rgba(30,64,175,0.34),rgba(2,6,23,0.92))] text-[26px] text-primary shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_0_20px_rgba(37,99,235,0.20)]',
+  'mb-4 flex h-[48px] w-[48px] items-center justify-center rounded-2xl bg-info-icon text-[26px] text-primary shadow-info-icon',
 )
+
+export const InfoTitle = w.span(
+  'text-[19px] font-bold leading-none tracking-normal text-text-primary',
+)
+
+export const InfoDescription = w.span(
+  'mt-2 text-sm font-medium leading-none tracking-normal text-text-secondary',
+)
+
+const infoIconClasses = 'drop-shadow-primary-glow'
+
+export const CodeIcon = w(IoCodeSlash, {
+  className: infoIconClasses,
+})
+
+export const RocketIcon = w(MdOutlineRocketLaunch, {
+  className: infoIconClasses,
+})
+
+export const FlashIcon = w(IoFlashOutline, {
+  className: infoIconClasses,
+})

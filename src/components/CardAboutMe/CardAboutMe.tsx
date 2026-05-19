@@ -1,7 +1,20 @@
-import { IoCodeSlash, IoFlashOutline } from 'react-icons/io5'
 import type { ReactNode } from 'react'
-import { MdOutlineRocketLaunch } from 'react-icons/md'
-import { InfoCard, InfoCardContent, InfoIcon } from './CardAboutMe.styles'
+import {
+  CardsList,
+  CodeIcon,
+  Copy,
+  Eyebrow,
+  FlashIcon,
+  HeadingGroup,
+  InfoCard,
+  InfoCardContent,
+  InfoDescription,
+  InfoIcon,
+  InfoTitle,
+  RocketIcon,
+  Title,
+  Wrapper,
+} from './CardAboutMe.styles'
 
 export type GradientInfoCardProps = {
   icon: ReactNode
@@ -18,12 +31,8 @@ export function GradientInfoCard({
     <InfoCard>
       <InfoCardContent>
         <InfoIcon>{icon}</InfoIcon>
-        <span className="text-[19px] font-bold leading-none tracking-normal text-white">
-          {title}
-        </span>
-        <span className="mt-2 text-sm font-medium leading-none tracking-normal text-text-secondary">
-          {description}
-        </span>
+        <InfoTitle>{title}</InfoTitle>
+        <InfoDescription>{description}</InfoDescription>
       </InfoCardContent>
     </InfoCard>
   )
@@ -31,41 +40,35 @@ export function GradientInfoCard({
 
 export function CardAboutMe() {
   return (
-    <div className="flex flex-col gap-8 md:flex-row">
-      <div className="flex w-full flex-col gap-4">
-        <div className="flex flex-col gap-3">
-          <h2 className="text-primary font-bold text-xs">SOBRE MIM</h2>
-          <span className="text-2xl font-bold">Mais sobre mim</span>
-        </div>
+    <Wrapper id="sobre">
+      <Copy>
+        <HeadingGroup>
+          <Eyebrow>SOBRE MIM</Eyebrow>
+          <Title>Mais sobre mim</Title>
+        </HeadingGroup>
         <p>
           Apaixonado por tecnologia e produto. Atuo há mais de 5 anos criando
           aplicações web modernas, escaláveis e com foco em experiência do
           usuário e performance
         </p>
-      </div>
-      <div className="flex w-full justify-center gap-3 md:w-2/3 md:justify-end  ">
+      </Copy>
+      <CardsList>
         <GradientInfoCard
-          icon={
-            <IoCodeSlash className="drop-shadow-[0_0_14px_rgba(59,130,246,0.85)]" />
-          }
+          icon={<CodeIcon />}
           title="+5 anos"
           description="de experiência"
         />
         <GradientInfoCard
-          icon={
-            <MdOutlineRocketLaunch className="drop-shadow-[0_0_14px_rgba(59,130,246,0.85)]" />
-          }
+          icon={<RocketIcon />}
           title="10+"
           description="projetos entregues"
         />
         <GradientInfoCard
-          icon={
-            <IoFlashOutline className="drop-shadow-[0_0_14px_rgba(59,130,246,0.85)]" />
-          }
+          icon={<FlashIcon />}
           title="Foco em"
           description="performance e UX "
         />
-      </div>
-    </div>
+      </CardsList>
+    </Wrapper>
   )
 }

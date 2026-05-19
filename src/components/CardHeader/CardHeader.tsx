@@ -1,33 +1,36 @@
-'use client'
-
-import BlueCircle from '../BlueCircle'
+import { BlueCircle } from '../BlueCircle'
+import {
+  ActionButton,
+  Eyebrow,
+  Title,
+  TitleBlock,
+  Wrapper,
+} from './CardHeader.styles'
 
 type CardHeaderProps = {
   eyebrow: string
   title: string
-  actionLabel: string
-  actionButton?: () => void
+  actionLabel?: string
+  actionHref?: string
 }
 
 export function CardHeader({
   eyebrow,
   title,
   actionLabel,
-  actionButton,
+  actionHref,
 }: CardHeaderProps) {
   return (
-    <div className="flex justify-between">
-      <div className="flex flex-col gap-3">
-        <h2 className="text-primary font-bold text-xs">{eyebrow}</h2>
-        <span className="text-2xl font-bold">{title}</span>
-      </div>
-      <button
-        type="button"
-        onClick={actionButton}
-        className="flex items-center gap-4 border border-primary rounded-lg py-3 px-4 h-fit font-bold cursor-pointer"
-      >
-        {actionLabel} <BlueCircle />
-      </button>
-    </div>
+    <Wrapper>
+      <TitleBlock>
+        <Eyebrow>{eyebrow}</Eyebrow>
+        <Title>{title}</Title>
+      </TitleBlock>
+      {actionLabel && actionHref ? (
+        <ActionButton href={actionHref}>
+          {actionLabel} <BlueCircle />
+        </ActionButton>
+      ) : null}
+    </Wrapper>
   )
 }
